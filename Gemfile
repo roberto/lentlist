@@ -22,6 +22,20 @@ end
 
 gem 'jquery-rails'
 
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+
+group :test, :development do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
