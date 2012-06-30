@@ -2,13 +2,19 @@
 <html>
 <head>
   <title>Lentlist</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="container">
+  <%= render partial: 'shared/nav' %>
+  <div class="row">
+    <div class="span7"><%= yield %></div>
+    <div class="span3 offset2">
+      <%= render partial: 'shared/sidebar' %>
+    </div>
+  </div>
+  <hr/>
+  <footer>Footer</footer>
 </body>
 </html>

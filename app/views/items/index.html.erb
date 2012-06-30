@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>I lent</th>
+      <th>my</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.borrower %></td>
+        <td><%= item.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
