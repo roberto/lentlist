@@ -22,6 +22,9 @@ end
 
 gem 'jquery-rails'
 
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+
 group :test, :development do
   gem 'rspec-rails'
 end
