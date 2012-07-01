@@ -3,6 +3,7 @@
     <tr>
       <th>I lent</th>
       <th>my</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -10,6 +11,17 @@
       <tr>
         <td><%= item.borrower %></td>
         <td><%= item.title %></td>
+        <td>
+          <div class="btn-toolbar">
+            <div class="btn-group"> 
+              <%= link_to 'Edit', "#", class: 'btn btn-mini' %>
+            </div>
+            <div class="btn-group"> 
+              <%= link_to 'Archive', "#", class: 'btn btn-mini' %>
+              <%= link_to 'Delete', "#", method: 'delete', data: {confirm: 'Are you sure?'}, class: 'btn btn-mini btn-danger' %>
+            </div>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
