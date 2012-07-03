@@ -25,6 +25,8 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 
+gem 'simple_form'
+
 group :test, :development do
   gem 'rspec-rails'
 end
