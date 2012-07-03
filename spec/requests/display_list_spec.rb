@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "DisplayList" do
+describe "Display items" do
   describe "GET /" do
     let(:items) { FactoryGirl.create_list(:item, 5)}
 
@@ -23,6 +23,10 @@ describe "DisplayList" do
         element.should have_link('Archive')
         element.should have_link('Delete')
       end
+    end
+
+    it "should display a 'Add item' button" do
+      page.should have_link('Add item')
     end
   end
 end

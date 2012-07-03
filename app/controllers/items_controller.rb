@@ -4,6 +4,21 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
+  def new
+    @item = Item.new
+  end
+
+  def create
+    @item = Item.new(params[:item])
+
+    #TODO add flash messages and respond_to block
+    if @item.save
+      redirect_to items_path
+    else
+      render :new
+    end
+  end
+
   def edit
     @item = Item.find(params[:id])
   end

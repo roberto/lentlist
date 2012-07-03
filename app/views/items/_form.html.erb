@@ -2,8 +2,8 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Item</legend>
 
-    <%= f.input :borrower, :label => "I lent" %>
-    <%= f.input :title, :label => "my" %>
+    <%= f.input :borrower, :label => "I lent", :placeholder => "John" %>
+    <%= f.input :title, :label => "my", :placeholder => 'Cookbook' %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
