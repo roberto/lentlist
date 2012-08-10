@@ -27,6 +27,7 @@ gem 'bootswatch-rails'
 gem 'simple_form'
 
 group :test, :development do
+  gem 'annotate'
   gem 'rspec-rails'
   gem 'sqlite3'
   gem "guard"
