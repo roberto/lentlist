@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -29,6 +29,8 @@ gem 'simple_form'
 group :test, :development do
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem "guard"
+  gem 'terminal-notifier'
 end
 
 group :test do
@@ -36,6 +38,11 @@ group :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"
+end
+
+
+group :development do
+  gem 'guard-pow'
 end
 
 # To use ActiveModel has_secure_password
