@@ -9,7 +9,10 @@
 <body class="container">
   <%= render partial: 'shared/nav' %>
   <div class="row">
-    <div class="span7"><%= yield %></div>
+    <div class="span7">
+      <%= render :partial => "shared/flash_messages", :locals => {:flash => flash} %> 
+      <%= yield %>
+    </div>
     <div class="span3 offset2">
       <%= render partial: 'shared/sidebar' %>
     </div>

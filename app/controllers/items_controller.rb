@@ -11,10 +11,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
 
-    #TODO add flash messages and respond_to block
     if @item.save
-      redirect_to items_path
+      redirect_to items_path, :flash => {:success => "Item added successfully."}
     else
+      flash.now[:error] = "The item could not be created."
       render :new
     end
   end
@@ -26,10 +26,10 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
 
-    #TODO add flash messages and respond_to block
     if @item.update_attributes(params[:item])
-      redirect_to items_path
+      redirect_to items_path, :flash => {:success => "Item updated successfully."}
     else
+      flash.now[:error] = "The item could not be updated."
       render :edit
     end
   end
