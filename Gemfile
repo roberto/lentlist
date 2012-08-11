@@ -25,6 +25,7 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 
 gem 'simple_form'
+gem 'rails_bootstrap_navbar'
 
 group :test, :development do
   gem 'annotate'
