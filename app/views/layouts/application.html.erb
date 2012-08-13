@@ -6,14 +6,14 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="container">
+<body>
   <%= render partial: 'shared/nav' %>
-  <div class="row">
-    <div class="span7">
+  <div class="content">
+    <div class="main">
       <%= render :partial => "shared/flash_messages", :locals => {:flash => flash} %> 
       <%= yield %>
     </div>
-    <div class="span3 offset2">
+    <div class="sidebar">
       <%= render partial: 'shared/sidebar' %>
     </div>
   </div>
