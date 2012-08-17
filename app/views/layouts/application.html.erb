@@ -10,7 +10,7 @@
   <%= render partial: 'shared/nav' %>
   <div class="content">
     <div class="main">
-      <%= render :partial => "shared/flash_messages", :locals => {:flash => flash} %> 
+      <%= render partial: "shared/flash_messages" %> 
       <%= yield %>
     </div>
     <div class="sidebar">
