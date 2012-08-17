@@ -26,6 +26,7 @@ gem 'bootswatch-rails'
 
 gem 'simple_form'
 gem 'rails_bootstrap_navbar'
+gem 'kaminari'
 
 group :test, :development do
   gem 'annotate'
