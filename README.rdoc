@@ -1,4 +1,4 @@
-{<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/roberto/lentlist]
+{<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/roberto/lentlist] {<img src="https://secure.travis-ci.org/roberto/lentlist.png?branch=master" alt="Build Status" />}[http://travis-ci.org/roberto/lentlist]
 
 == Lentlist
 
