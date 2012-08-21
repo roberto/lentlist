@@ -37,14 +37,19 @@ group :test do
   gem 'shoulda-matchers'
   gem "factory_girl_rails"
   gem "capybara"
+
+  #metrics
   gem 'simplecov', :require => false
+  gem 'rails_best_practices', :require => false
 end
 
 
 group :development do
+  gem 'annotate'
+
+  #guard
   gem "guard"
   gem "guard-rspec"
-  gem 'annotate'
   gem 'terminal-notifier'
   gem 'guard-pow'
 end

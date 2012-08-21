@@ -14,4 +14,6 @@
 /log/*.log
 /tmp
 
+# metrics
 coverage
+rails_best_practices_output.html
