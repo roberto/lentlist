@@ -1,8 +1,12 @@
+{<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/roberto/lentlist]
+
 == Lentlist
 
 Ruby on Rails example application.
 
-{<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/roberto/lentlist]
+== Technical Notes
+
+* {Integrating Twitter Bootstrap With Ruby on Rails}[http://blog.robertosoares.me/blog/2012/08/17/integrating-twitter-bootstrap-with-ruby-on-rails/]
 
 
 
