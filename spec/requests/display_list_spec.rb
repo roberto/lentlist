@@ -5,6 +5,7 @@ describe "Display items" do
     let(:items) { FactoryGirl.create_list(:item, 5)}
 
     before do
+      items
       visit root_path
     end
 
