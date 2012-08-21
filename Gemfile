@@ -29,22 +29,22 @@ gem 'rails_bootstrap_navbar'
 gem 'kaminari'
 
 group :test, :development do
-  gem 'annotate'
   gem 'rspec-rails'
   gem 'sqlite3'
-  gem "guard"
-  gem 'terminal-notifier'
 end
 
 group :test do
   gem 'shoulda-matchers'
   gem "factory_girl_rails"
   gem "capybara"
-  gem "guard-rspec"
 end
 
 
 group :development do
+  gem "guard"
+  gem "guard-rspec"
+  gem 'annotate'
+  gem 'terminal-notifier'
   gem 'guard-pow'
 end
 
