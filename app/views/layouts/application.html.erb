@@ -7,14 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render partial: 'shared/nav' %>
+  <%= render 'shared/nav' %>
   <div class="content">
     <div class="main">
-      <%= render partial: "shared/flash_messages" %>
+      <%= render 'shared/flash_messages' %>
       <%= yield %>
     </div>
     <div class="sidebar">
-      <%= render partial: 'shared/sidebar' %>
+      <%= render 'shared/sidebar' %>
     </div>
   </div>
   <hr/>
