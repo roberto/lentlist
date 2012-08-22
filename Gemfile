@@ -29,18 +29,14 @@ gem 'rails_bootstrap_navbar'
 gem 'kaminari'
 
 group :test, :development do
-  gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
 group :test do
   gem 'shoulda-matchers'
   gem "factory_girl_rails"
   gem "capybara"
-
-  #metrics
-  gem 'simplecov', :require => false
-  gem 'rails_best_practices', :require => false
 end
 
 
@@ -52,6 +48,11 @@ group :development do
   gem "guard-rspec"
   gem 'terminal-notifier'
   gem 'guard-pow'
+end
+
+group :metrics do
+  gem 'simplecov', :require => false
+  gem 'rails_best_practices', :require => false
 end
 
 # To use ActiveModel has_secure_password
