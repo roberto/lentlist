@@ -9,8 +9,8 @@ postgresql: &postgresql
   database: lentlist_<%= Rails.env %>
   min_messages: ERROR
 
-defaults: &defaults
+test:
+  <<: *<%= ENV['DB'] || "postgresql" %>
   pool: 5
   timeout: 5000
   host: localhost
-  <<: *<%= ENV['DB'] || "postgresql" %>
