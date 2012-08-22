@@ -14,6 +14,8 @@
 /log/*.log
 /tmp
 
+/config/database.yml
+
 # metrics
 coverage
 rails_best_practices_output.html
