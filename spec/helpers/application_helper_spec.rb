@@ -18,7 +18,7 @@ describe ApplicationHelper do
       helper.bootstrap_class_for(:success).should == "alert-success"
     end
 
-    it "should return param as string when it isn't alert, error, notice or success" do
+    it "should return flash_type if it isn't alert, error, notice or success" do
       helper.bootstrap_class_for(:other).should == "other"
     end
   end

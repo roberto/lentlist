@@ -22,7 +22,7 @@ describe "New item" do
       end
 
       current_path.should == items_path
-      
+
       updated_item = Item.last
       updated_item.borrower.should == "Davis"
       updated_item.title.should == "Kindle"
