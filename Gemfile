@@ -28,6 +28,9 @@ gem 'simple_form'
 gem 'rails_bootstrap_navbar'
 gem 'kaminari'
 
+gem 'validates_email_format_of'
+
+
 group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails'
@@ -37,6 +40,7 @@ group :test do
   gem 'shoulda-matchers'
   gem "factory_girl_rails"
   gem "capybara"
+  gem 'accept_values_for'
 end
 
 
