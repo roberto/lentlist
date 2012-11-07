@@ -1,0 +1,22 @@
+sqlite: &sqlite
+  adapter: sqlite3
+  database: db/<%= Rails.env %>.sqlite3
+
+postgresql: &postgresql
+  adapter: postgresql
+  username: postgres
+  password:
+  database: lentlist_<%= Rails.env %>
+  min_messages: ERROR
+
+defaults: &defaults
+  <<: *<%= ENV['DB'] || "sqlite" %>
+  pool: 5
+  timeout: 5000
+  host: localhost
+
+test:
+  <<: *defaults
+
+development:
+  <<: *defaults
