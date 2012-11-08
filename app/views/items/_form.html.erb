@@ -1,8 +1,9 @@
 <%= simple_form_for item, html: { class: 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= title %> Item</legend>
-
-    <%= f.input :borrower, label: "I lent", placeholder: "John" %>
+    <%= f.simple_fields_for :borrower do |borrower_form| %>
+      <%= borrower_form.input :name, label: "I lent", placeholder: "John" %>
+    <% end %>
     <%= f.input :title, label: "my", placeholder: 'Cookbook' %>
 
     <div class="form-actions">

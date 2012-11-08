@@ -29,7 +29,7 @@ describe "Edit item" do
 
     it "should update data after submit" do
       updated_item = Item.find(item)
-      updated_item.borrower.should == "Bruno"
+      updated_item.borrower.name.should == "Bruno"
       updated_item.title.should == "iPad"
     end
 

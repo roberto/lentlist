@@ -5,7 +5,7 @@ describe "New item" do
     visit new_item_path
   end
 
-  it "should load current data" do
+  it "should set placeholders" do
     within("fieldset") do
       page.should have_selector(:xpath, "//input[@placeholder='John']")
       page.should have_selector(:xpath, "//input[@placeholder='Cookbook']")
@@ -28,7 +28,7 @@ describe "New item" do
 
     it "should create item after submit" do
       updated_item = Item.last
-      updated_item.borrower.should == "Davis"
+      updated_item.borrower.name.should == "Davis"
       updated_item.title.should == "Kindle"
     end
   end

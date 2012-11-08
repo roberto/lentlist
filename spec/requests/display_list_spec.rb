@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe "Display items" do
   describe "GET /" do
-    let(:items) { FactoryGirl.create_list(:item, 5)}
+    let!(:items) { FactoryGirl.create_list(:item, 5)}
 
     before do
-      items
       visit root_path
     end
 
@@ -13,7 +12,7 @@ describe "Display items" do
       within('table') do
         items.each do |item|
           page.should have_content(item.title)
-          page.should have_content(item.borrower)
+          page.should have_content(item.borrower.name)
         end
       end
     end

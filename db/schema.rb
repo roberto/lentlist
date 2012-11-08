@@ -11,13 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120630135113) do
+ActiveRecord::Schema.define(:version => 20121031144744) do
 
-  create_table "items", :force => true do |t|
-    t.string   "title",      :null => false
-    t.string   "borrower"
+  create_table "borrowers", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "items", :force => true do |t|
+    t.string   "title",       :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "borrower_id"
+  end
+
+  add_index "items", ["borrower_id"], :name => "index_items_on_borrower_id"
 
 end
