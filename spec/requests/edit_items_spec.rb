@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Edit item" do
-  let(:item) { FactoryGirl.create(:item) }
+  let(:item) { create(:item) }
 
   before do
     visit edit_item_path(item)

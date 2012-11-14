@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Display items" do
   describe "GET /" do
-    let!(:items) { FactoryGirl.create_list(:item, 5)}
+    let!(:items) { create_list(:item, 5)}
 
     before do
       visit root_path
