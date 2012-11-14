@@ -30,25 +30,27 @@ gem 'validates_email_format_of'
 group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails'
+  gem "guard-rspec"
 end
 
 group :test do
   gem 'shoulda-matchers'
   gem "factory_girl_rails"
+  gem 'faker'
+  gem 'database_cleaner'
+  gem 'launchy'
   gem "capybara"
   gem 'accept_values_for'
 end
 
-
 group :development do
   gem 'annotate'
-  gem "guard"
-  gem "guard-rspec"
 end
 
 group :mac do
   gem 'terminal-notifier-guard'
   gem 'guard-pow'
+  gem 'rb-fsevent'
 end
 
 group :metrics do
