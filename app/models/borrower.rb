@@ -12,5 +12,5 @@
 class Borrower < ActiveRecord::Base
   attr_accessible :email, :name
   validates_presence_of :name
-  validates_email_format_of :email, :allow_nil => true
+  validates_email_format_of :email, :allow_blank => true
 end

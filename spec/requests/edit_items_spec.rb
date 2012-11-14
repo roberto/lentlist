@@ -9,8 +9,8 @@ describe "Edit item" do
 
   it "should load current data" do
     within("fieldset") do
-      page.should have_field("I lent"), with: item.borrower
-      page.should have_field("my"), with: item.title
+      expect(page).to have_field("I lent", with: item.borrower.name)
+      expect(page).to have_field("my", with: item.title)
     end
   end
 
@@ -24,17 +24,17 @@ describe "Edit item" do
     end
 
     it "should redirect to items list" do
-      current_path.should == items_path
+      expect(current_path).to eql(items_path)
     end
 
     it "should update data after submit" do
       updated_item = Item.find(item)
-      updated_item.borrower.name.should == "Bruno"
-      updated_item.title.should == "iPad"
+      expect(updated_item.borrower.name).to eql("Bruno")
+      expect(updated_item.title).to eql("iPad")
     end
 
     it "should info user about the success" do
-      find(".alert").should have_content("Item updated successfully.")
+      expect(find(".alert")).to have_content("Item updated successfully.")
     end
   end
 
@@ -48,17 +48,17 @@ describe "Edit item" do
     end
 
     it "should stay on the edit page" do
-      find("legend").should have_content("Edit Item")
+      expect(find("legend")).to have_content("Edit Item")
     end
 
     it "should alert user about the error" do
-      find(".alert").should have_content("The item could not be updated.")
+      expect(find(".alert")).to have_content("The item could not be updated.")
     end
 
     it "should not update data after submit" do
       reloaded_item = Item.find(item)
-      reloaded_item.borrower.should == item.borrower
-      reloaded_item.title.should == item.title
+      expect(reloaded_item.borrower).to eql(item.borrower)
+      expect(reloaded_item.title).to eql(item.title)
     end
   end
 end

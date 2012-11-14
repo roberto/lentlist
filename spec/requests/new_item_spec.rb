@@ -7,8 +7,8 @@ describe "New item" do
 
   it "should set placeholders" do
     within("fieldset") do
-      page.should have_selector(:xpath, "//input[@placeholder='John']")
-      page.should have_selector(:xpath, "//input[@placeholder='Cookbook']")
+      expect(page).to have_selector(:xpath, "//input[@placeholder='John']")
+      expect(page).to have_selector(:xpath, "//input[@placeholder='Cookbook']")
     end
   end
 
@@ -23,13 +23,13 @@ describe "New item" do
     end
 
     it "should redirect to items list" do
-      current_path.should == items_path
+      expect(current_path).to eql(items_path)
     end
 
     it "should create item after submit" do
       updated_item = Item.last
-      updated_item.borrower.name.should == "Davis"
-      updated_item.title.should == "Kindle"
+      expect(updated_item.borrower.name).to eql("Davis")
+      expect(updated_item.title).to eql("Kindle")
     end
   end
 
@@ -44,15 +44,15 @@ describe "New item" do
     end
 
     it "should stay on new item page" do
-      find("legend").should have_content("New Item")
+      expect(find("legend")).to have_content("New Item")
     end
 
     it "should alert user about error" do
-      find('.alert').should have_content("The item could not be created.")
+      expect(find('.alert')).to have_content("The item could not be created.")
     end
 
     it "should create item after submit" do
-      Item.last.should be_nil
+      expect(Item.last).to be_nil
     end
   end
 end

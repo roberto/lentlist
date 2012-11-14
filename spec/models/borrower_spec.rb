@@ -12,8 +12,15 @@
 require 'spec_helper'
 
 describe Borrower do
-  it { should validate_presence_of(:name) }
-  it { should_not validate_presence_of(:email) }
-  it { should accept_values_for(:email, "ale.x+test@example.com.br", "john@example.com", "lambda@gusiev.com") }
+  it "has a valid factory" do
+    expect(create(:borrower)).to be_valid
+  end
+  it "is invalid without name"do
+    expect(build(:borrower, name: "")).to_not be_valid
+  end
+  it "is valid without email"do
+    expect(build(:borrower, email: "")).to be_valid
+  end
+  it { should accept_values_for(:email, "ale.x+test@example.com.br", nil, "john@example.com", "lambda@gusiev.com") }
   it { should_not accept_values_for(:email, "invalid", "a@b", "john@.com") }
 end
