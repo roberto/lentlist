@@ -1,6 +1,7 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
+interactor :off
 notification :terminal_notifier, app_name: "Lentlist"
 
 guard 'rspec', :version => 2 do
