@@ -9,7 +9,7 @@ describe "Display items" do
     end
 
     it "should display the current items (title and borrower)" do
-      within('table') do
+      within main_table do
         items.each do |item|
           expect(page).to have_content(item.title)
           expect(page).to have_content(item.borrower.name)
@@ -18,7 +18,7 @@ describe "Display items" do
     end
 
     it "should display edit, delete and archive button for each item" do
-      all(:xpath, "//tbody/tr").each do |element|
+      table_rows.each do |element|
         expect(element).to have_link('Edit')
         expect(element).to have_link('Archive')
         expect(element).to have_link('Delete')

@@ -8,7 +8,7 @@ describe "Edit item" do
   end
 
   it "should load current data" do
-    within("fieldset") do
+    within main_form do
       expect(page).to have_field("I lent", with: item.borrower.name)
       expect(page).to have_field("my", with: item.title)
     end
@@ -16,7 +16,7 @@ describe "Edit item" do
 
   context "submitting valid item" do
     before do
-      within("fieldset") do
+      within main_form do
         fill_in "I lent", with: "Bruno"
         fill_in "my", with: "iPad"
         click_button('Update Item')
@@ -34,13 +34,13 @@ describe "Edit item" do
     end
 
     it "should info user about the success" do
-      expect(find(".alert")).to have_content("Item updated successfully.")
+      expect(flash_message("alert")).to have_content("Item updated successfully.")
     end
   end
 
   context "submitting invalid item" do
     before do
-      within("fieldset") do
+      within main_form do
         fill_in "I lent", with: "David"
         fill_in "my", with: ""
         click_button('Update Item')
@@ -48,11 +48,11 @@ describe "Edit item" do
     end
 
     it "should stay on the edit page" do
-      expect(find("legend")).to have_content("Edit Item")
+      expect(form_title).to have_content("Edit Item")
     end
 
     it "should alert user about the error" do
-      expect(find(".alert")).to have_content("The item could not be updated.")
+      expect(flash_message("alert")).to have_content("The item could not be updated.")
     end
 
     it "should not update data after submit" do

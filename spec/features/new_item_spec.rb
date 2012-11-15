@@ -6,16 +6,16 @@ describe "New item" do
   end
 
   it "should set placeholders" do
-    within("fieldset") do
-      expect(page).to have_selector(:xpath, "//input[@placeholder='John']")
-      expect(page).to have_selector(:xpath, "//input[@placeholder='Cookbook']")
+    within main_form do
+      expect(page).to have_input("I lent").with_placeholder('John')
+      expect(page).to have_input("my").with_placeholder('Cookbook')
     end
   end
 
 
   context "submitting valid item" do
     before do
-      within("fieldset") do
+      within main_form do
         fill_in "I lent", with: "Davis"
         fill_in "my", with: "Kindle"
         click_button('Create Item')
@@ -36,7 +36,7 @@ describe "New item" do
   context "submitting invalid item" do
     before do
       Item.delete_all
-      within("fieldset") do
+      within main_form do
         fill_in "I lent", with: "Davis"
         fill_in "my", with: ""
         click_button('Create Item')
@@ -44,11 +44,11 @@ describe "New item" do
     end
 
     it "should stay on new item page" do
-      expect(find("legend")).to have_content("New Item")
+      expect(form_title).to have_content("New Item")
     end
 
     it "should alert user about error" do
-      expect(find('.alert')).to have_content("The item could not be created.")
+      expect(flash_message("alert")).to have_content("The item could not be created.")
     end
 
     it "should create item after submit" do
