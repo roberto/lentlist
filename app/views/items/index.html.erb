@@ -8,7 +8,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.borrower.name %></td>
+        <td><%= item.borrower.name if item.borrower %></td>
         <td><%= item.title %></td>
         <td>
           <div class="btn-toolbar">

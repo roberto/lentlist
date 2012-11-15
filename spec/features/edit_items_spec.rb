@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Edit item" do
-  let(:item) { create(:item) }
+  let(:item) { create(:item_with_borrower) }
 
   before do
     visit edit_item_path(item)
