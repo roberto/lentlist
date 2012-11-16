@@ -5,6 +5,10 @@ FactoryGirl.define do
     factory :item_with_borrower do
       borrower
     end
+
+    factory :invalid_item do
+      title nil
+    end
   end
 
   factory :borrower do
@@ -15,6 +19,10 @@ FactoryGirl.define do
       after(:build) do |borrower, evaluator|
         borrower.items = build_list(:item, 3) if borrower.items.blank?
       end
+    end
+
+    factory :invalid_borrower do
+      name nil
     end
   end
 end
