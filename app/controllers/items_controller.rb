@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     @item = Item.new params[:item]
 
     if @item.save
-      redirect_to items_path, flash: {success: "Item added successfully."}
+      redirect_to :items, flash: {success: "Item added successfully."}
     else
       flash.now[:error] = "The item could not be created."
       render :new
@@ -28,11 +28,17 @@ class ItemsController < ApplicationController
     @item = Item.find params[:id]
 
     if @item.update_attributes params[:item]
-      redirect_to items_path, flash: {success: "Item updated successfully."}
+      redirect_to :items, flash: {success: "Item updated successfully."}
     else
       flash.now[:error] = "The item could not be updated."
       render :edit
     end
+  end
+
+  def destroy
+    @item = Item.find params[:id]
+    @item.destroy
+    redirect_to :items, flash: { success: "Item destroyed successfully." }
   end
 
 
