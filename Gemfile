@@ -31,6 +31,7 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'mocha', require: false
+  gem 'timecop'
   gem "factory_girl_rails"
   gem 'faker'
   gem 'database_cleaner'
@@ -50,8 +51,8 @@ group :mac do
 end
 
 group :metrics do
-  gem 'simplecov', :require => false
-  gem 'rails_best_practices', :require => false
+  gem 'simplecov', require: false
+  gem 'rails_best_practices', require: false
 end
 
 # To use ActiveModel has_secure_password
