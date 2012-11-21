@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 describe ItemsController do
+  before(:all){ ActiveRecord::IdentityMap.enabled = true }
+  after(:all){ ActiveRecord::IdentityMap.enabled = false }
 
   describe "GET #index" do
-    let(:items) { [double(Item), double(Item)]}
-    before do
-      Item.stub(:page).and_return(items)
-    end
+    let!(:items) { create_list(:item, 4) }
 
     it "populates an array of items" do
       get :index
@@ -19,7 +18,7 @@ describe ItemsController do
     end
 
     it "handles pagination" do
-      Item.should_receive(:page).with("4")
+      Item.expects(:page).with("4")
       get :index, page: "4"
     end
   end
@@ -42,10 +41,7 @@ describe ItemsController do
   end
 
   describe "GET #edit" do
-    let!(:item) { double(:item) }
-    before do
-      Item.stub(:find).and_return(item)
-    end
+    let!(:item) { create(:item) }
 
     it "assigns requested item" do
       get :edit, id: item
@@ -84,8 +80,7 @@ describe ItemsController do
   end
 
   describe "PUT #update" do
-    before { Item.stub(:find).and_return(item) }
-    let(:item) { double(:item, update_attributes: true) }
+    let(:item) { create(:item) }
 
     it "assigns item" do
       put :update, id: item, item: attributes_for(:item)
@@ -105,7 +100,7 @@ describe ItemsController do
     end
 
     context "invalid attributes" do
-      let(:item) { double(:item, update_attributes: false) }
+      let(:item) { create(:item) }
 
       it "re-renders the edit template" do
         put :update, id: item, item: attributes_for(:invalid_item)
@@ -120,12 +115,10 @@ describe ItemsController do
   end
 
   describe "DELETE #destroy" do
-    let(:item) { double(:item, destroy: true) }
-    before :each do
-      Item.stub(:find).and_return(item)
-    end
+    let(:item) { create(:item) }
+
     it "destroys the item" do
-      item.should_receive(:destroy).and_return(true)
+      item.expects(:destroy).returns(true)
       delete :destroy, id: item
     end
     it "redirects to items page" do

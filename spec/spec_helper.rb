@@ -10,6 +10,9 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'rspec/autorun'
 
+require 'mocha/setup'
+Mocha::Configuration.prevent(:stubbing_non_existent_method)
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
@@ -19,6 +22,9 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.mock_framework = :mocha
+
   config.include PageSteps, :type => :feature
   config.include FormSteps, :type => :feature
   # ## Mock Framework

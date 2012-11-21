@@ -11,7 +11,7 @@ describe ApplicationController do
       end
 
       it "redirects to 404 page" do
-        controller.should_receive(:render).with(file: "#{Rails.root}/public/404", status: 404, layout: false)
+        controller.expects(:render).with(file: "#{Rails.root}/public/404", status: 404, layout: false)
         get :index
       end
     end
@@ -23,7 +23,8 @@ describe ApplicationController do
       end
 
       it "doesn't redirect to 404 page" do
-        controller.should_not_receive(:render).with(file: "#{Rails.root}/public/404", status: 404, layout: false)
+        controller.expects(:render)
+        controller.expects(:render).with(file: "#{Rails.root}/public/404", status: 404, layout: false).never
         get :index
       end
     end
