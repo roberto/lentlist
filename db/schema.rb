@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121031144744) do
+ActiveRecord::Schema.define(:version => 20121121014946) do
 
   create_table "borrowers", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20121031144744) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "borrower_id"
+    t.datetime "archived_at"
   end
 
   add_index "items", ["borrower_id"], :name => "index_items_on_borrower_id"

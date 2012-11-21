@@ -16,4 +16,11 @@ class Item < ActiveRecord::Base
   accepts_nested_attributes_for :borrower
 
   validates_presence_of :title
+
+  def archive
+    unless self.archived_at
+      self.archived_at = Time.current
+      save
+    end
+  end
 end

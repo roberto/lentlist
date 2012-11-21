@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :item do
     sequence(:title) { |n| Faker::Lorem.word }
+    archived_at nil
 
     factory :item_with_borrower do
       borrower
@@ -8,6 +9,10 @@ FactoryGirl.define do
 
     factory :invalid_item do
       title nil
+    end
+
+    factory :archived_item do
+      archived_at { Time.local_time(2010, 8, 15) }
     end
   end
 
